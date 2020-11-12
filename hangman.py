@@ -9,10 +9,12 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import random
 
 
 class Ui_Hangman(object):
-    def setupUi(self, Hangman):
+
+    def setupHangman(self, Hangman):
         Hangman.setObjectName("Hangman")
         Hangman.resize(800, 600)
         Hangman.setMinimumSize(QtCore.QSize(800, 600))
@@ -52,7 +54,7 @@ class Ui_Hangman(object):
         self.pushButton_B.setFont(font)
         self.pushButton_B.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_B.setStyleSheet("background-color: rgb(255, 183, 178);\n"
-"")
+                                        "")
         self.pushButton_B.setObjectName("pushButton_B")
         self.horizontalLayout_3.addWidget(self.pushButton_B)
         self.pushButton_C = QtWidgets.QPushButton(self.layoutWidget)
@@ -128,7 +130,7 @@ class Ui_Hangman(object):
         self.pushButton_J.setFont(font)
         self.pushButton_J.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_J.setStyleSheet("background-color: rgb(255, 183, 178);\n"
-"")
+                                        "")
         self.pushButton_J.setObjectName("pushButton_J")
         self.horizontalLayout_2.addWidget(self.pushButton_J)
         self.pushButton_K = QtWidgets.QPushButton(self.layoutWidget)
@@ -204,7 +206,7 @@ class Ui_Hangman(object):
         self.pushButton_R.setFont(font)
         self.pushButton_R.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_R.setStyleSheet("background-color: rgb(255, 183, 178);\n"
-"")
+                                        "")
         self.pushButton_R.setObjectName("pushButton_R")
         self.horizontalLayout_4.addWidget(self.pushButton_R)
         self.pushButton_S = QtWidgets.QPushButton(self.layoutWidget)
@@ -292,6 +294,7 @@ class Ui_Hangman(object):
         self.gridLayout_2.addWidget(self.pushButton_Z, 1, 1, 1, 1)
         self.label = QtWidgets.QLabel(Hangman)
         self.label.setGeometry(QtCore.QRect(30, 310, 741, 91))
+        self.label.setAlignment(QtCore.Qt.AlignCenter)
         font = QtGui.QFont()
         font.setFamily("Zilla Slab Medium")
         font.setPointSize(30)
@@ -313,7 +316,7 @@ class Ui_Hangman(object):
         self.pushButton_back.setFont(font)
         self.pushButton_back.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_back.setStyleSheet("color: rgb(0, 0, 127);\n"
-"background-color: rgb(255, 154, 162);")
+                                           "background-color: rgb(255, 154, 162);")
         self.pushButton_back.setObjectName("pushButton_back")
         self.pushButton_back_2 = QtWidgets.QPushButton(Hangman)
         self.pushButton_back_2.setGeometry(QtCore.QRect(740, 550, 51, 41))
@@ -323,7 +326,7 @@ class Ui_Hangman(object):
         self.pushButton_back_2.setFont(font)
         self.pushButton_back_2.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
         self.pushButton_back_2.setStyleSheet("color: rgb(0, 0, 127);\n"
-"background-color: rgb(199, 206, 234);")
+                                             "background-color: rgb(199, 206, 234);")
         self.pushButton_back_2.setObjectName("pushButton_back_2")
 
         self.retranslateUi(Hangman)
@@ -360,7 +363,20 @@ class Ui_Hangman(object):
         self.pushButton_Z.setText(_translate("Hangman", "Z"))
         self.label.setText(_translate("Hangman", "Welcome To Hangman!!"))
         self.pushButton_back.setText(_translate("Hangman", "<<<"))
+        self.pushButton_back_2.clicked.connect(exit)
         self.pushButton_back_2.setText(_translate("Hangman", ">>>"))
+
+        self.pushButton_A.clicked.connect(self.print)
+
+    def print(self):
+        global box
+        box = []
+        word = ["Computer", "Science", "Error", "Exit", "Mini", "Project", "Engineering", "World", "Python",
+                "Stack", "Data", "Statistic", "Constant", "Calculus", "Process", "Device", "Coding", "Flowing",
+                "Index", "Widgets", "Application", "Physic", "Power", "Spam", "Hacking"]
+        c = random.randint(0, 24)
+        box.append(word[c])
+        self.label.setText(word[c])
 
 
 if __name__ == "__main__":
@@ -368,6 +384,6 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     Hangman = QtWidgets.QWidget()
     ui = Ui_Hangman()
-    ui.setupUi(Hangman)
+    ui.setupHangman(Hangman)
     Hangman.show()
     sys.exit(app.exec_())
