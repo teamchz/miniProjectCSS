@@ -11,14 +11,17 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(640, 480)
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.setWindowModality(QtCore.Qt.NonModal)
+        Form.resize(640, 480)
+        Form.setMinimumSize(QtCore.QSize(640, 480))
+        Form.setMaximumSize(QtCore.QSize(640, 480))
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/newPrefix/ttticon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        MainWindow.setWindowIcon(icon)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        Form.setWindowIcon(icon)
+        self.centralwidget = QtWidgets.QWidget(Form)
         self.centralwidget.setObjectName("centralwidget")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(60, 230, 150, 100))
@@ -67,20 +70,27 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.label.setFont(font)
         self.label.setObjectName("label")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar = QtWidgets.QStatusBar(Form)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Tic Tac Toe"))
-        self.pushButton.setText(_translate("MainWindow", "Easy"))
-        self.pushButton_2.setText(_translate("MainWindow", "Hard"))
-        self.pushButton_3.setText(_translate("MainWindow", "2 Player"))
-        self.pushButton_4.setText(_translate("MainWindow", "Back"))
-        self.label.setText(_translate("MainWindow", "Tic Tac Toe"))
-import icon_rc
+        Form.setWindowTitle(_translate("Form", "Tic Tac Toe"))
+        self.pushButton.setText(_translate("Form", "Easy"))
+        self.pushButton_2.setText(_translate("Form", "Hard"))
+        self.pushButton_3.setText(_translate("Form", "2 Player"))
+        self.pushButton_4.setText(_translate("Form", "Back"))
+        self.label.setText(_translate("Form", "Tic Tac Toe"))
+#import icon_rc
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())

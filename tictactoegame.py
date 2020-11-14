@@ -11,16 +11,17 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.setEnabled(True)
-        MainWindow.resize(800, 600)
-        MainWindow.setMinimumSize(QtCore.QSize(800, 600))
-        MainWindow.setMaximumSize(QtCore.QSize(800, 600))
-        MainWindow.setMouseTracking(True)
-        MainWindow.setAutoFillBackground(False)
-        self.centralwidget = QtWidgets.QWidget(MainWindow)
+class Ui_Form(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.setWindowModality(QtCore.Qt.NonModal)
+        Form.setEnabled(True)
+        Form.resize(800, 600)
+        Form.setMinimumSize(QtCore.QSize(800, 600))
+        Form.setMaximumSize(QtCore.QSize(800, 600))
+        Form.setMouseTracking(True)
+        Form.setAutoFillBackground(False)
+        self.centralwidget = QtWidgets.QWidget(Form)
         self.centralwidget.setEnabled(True)
         self.centralwidget.setMouseTracking(True)
         self.centralwidget.setObjectName("centralwidget")
@@ -54,14 +55,22 @@ class Ui_MainWindow(object):
         self.linev2.setMidLineWidth(5)
         self.linev2.setFrameShape(QtWidgets.QFrame.VLine)
         self.linev2.setObjectName("linev2")
-        MainWindow.setCentralWidget(self.centralwidget)
-        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar = QtWidgets.QStatusBar(Form)
         self.statusbar.setObjectName("statusbar")
-        MainWindow.setStatusBar(self.statusbar)
 
-        self.retranslateUi(MainWindow)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "Tic Tac Toe"))
+        Form.setWindowTitle(_translate("Form", "Tic Tac Toe"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QWidget()
+    ui = Ui_Form()
+    ui.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
