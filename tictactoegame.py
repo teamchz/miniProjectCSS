@@ -378,48 +378,41 @@ class Ui_Form(object):
         self.check_correctly()
 
     def check_correctly(self):
-        print(box)
         # Vertical win
         if box[0][0] == 1 and box [1][0] == 1and box [2][0] == 1:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[0][0] == 2 and box[1][0] == 2 and box[2][0] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         elif box[0][1] == 1 and box[1][1] == 1 and box[2][1] == 1:
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[0][1] == 2 and box[1][1] == 2 and box[2][1] == 2:
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         elif box[0][2] == 1 and box[1][2] == 1 and box[2][2] == 1:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[0][2] == 2 and box[1][2] == 2 and box[2][2] == 2:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         # Horizontal win
@@ -427,42 +420,36 @@ class Ui_Form(object):
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[0][0] == 2 and box [0][1] == 2 and box [0][2] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         elif box[1][0] == 1 and box [1][1] == 1 and box [1][2] == 1:
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[1][0] == 2 and box[1][1] == 2 and box[1][2] == 2:
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         elif box[2][0] == 1 and box [2][1] == 1 and box [2][2] == 1:
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[2][0] == 2 and box [2][1] == 2 and box [2][2] == 2:
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         # Slash win
@@ -470,28 +457,24 @@ class Ui_Form(object):
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[0][0] == 2 and box[1][1] == 2 and box[2][2] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
         elif box[0][2] == 1 and box[1][1] == 1 and box[2][0] == 1:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
-            print("x win")
             self.button_false()
 
         elif box[0][2] == 2 and box[1][1] == 2 and box[2][0] == 2:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
-            print("o win")
             self.button_false()
 
     def button_false(self):
