@@ -679,28 +679,23 @@ background-color: rgb(199, 206, 234);</string>
     <string>&gt;&gt;&gt;</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_start">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>680</x>
-     <y>340</y>
-     <width>81</width>
-     <height>51</height>
+     <x>30</x>
+     <y>40</y>
+     <width>741</width>
+     <height>251</height>
     </rect>
    </property>
-   <property name="font">
-    <font>
-     <family>Zilla Slab SemiBold</family>
-     <pointsize>18</pointsize>
-     <weight>75</weight>
-     <bold>true</bold>
-    </font>
-   </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(255, 255, 127);</string>
+    <string notr="true">background-color: rgb(135, 135, 135);</string>
    </property>
    <property name="text">
-    <string>Start </string>
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap>Hangman-0.png</pixmap>
    </property>
   </widget>
  </widget>
