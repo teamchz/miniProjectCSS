@@ -9,16 +9,19 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+import numpy as np
 
-
+# UI
 class Ui_Form(object):
+    count = 0
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.setWindowModality(QtCore.Qt.NonModal)
         Form.setEnabled(True)
-        Form.resize(800, 600)
-        Form.setMinimumSize(QtCore.QSize(800, 600))
-        Form.setMaximumSize(QtCore.QSize(800, 600))
+        Form.resize(800, 800)
+        Form.setMinimumSize(QtCore.QSize(800, 800))
+        Form.setMaximumSize(QtCore.QSize(800, 800))
         Form.setMouseTracking(True)
         Form.setAutoFillBackground(False)
         self.centralwidget = QtWidgets.QWidget(Form)
@@ -55,21 +58,495 @@ class Ui_Form(object):
         self.linev2.setMidLineWidth(5)
         self.linev2.setFrameShape(QtWidgets.QFrame.VLine)
         self.linev2.setObjectName("linev2")
-        self.statusbar = QtWidgets.QStatusBar(Form)
-        self.statusbar.setObjectName("statusbar")
+        self.B1 = QtWidgets.QPushButton(self.centralwidget)
+        self.B1.setEnabled(True)
+        self.B1.setGeometry(QtCore.QRect(25, 25, 240, 175))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B1.setFont(font)
+        self.B1.setMouseTracking(False)
+        self.B1.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B1.setAcceptDrops(False)
+        self.B1.setToolTip("")
+        self.B1.setText("")
+        self.B1.setShortcut("")
+        self.B1.setCheckable(False)
+        self.B1.setChecked(False)
+        self.B1.setAutoRepeat(False)
+        self.B1.setAutoExclusive(False)
+        self.B1.setDefault(False)
+        self.B1.setFlat(True)
+        self.B1.setObjectName("B1")
+        self.B2 = QtWidgets.QPushButton(self.centralwidget)
+        self.B2.setGeometry(QtCore.QRect(268, 25, 266, 175))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B2.setFont(font)
+        self.B2.setMouseTracking(False)
+        self.B2.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B2.setAcceptDrops(False)
+        self.B2.setToolTip("")
+        self.B2.setText("")
+        self.B2.setShortcut("")
+        self.B2.setCheckable(False)
+        self.B2.setChecked(False)
+        self.B2.setAutoRepeat(False)
+        self.B2.setAutoExclusive(False)
+        self.B2.setDefault(False)
+        self.B2.setFlat(True)
+        self.B2.setObjectName("B2")
+        self.B3 = QtWidgets.QPushButton(self.centralwidget)
+        self.B3.setGeometry(QtCore.QRect(537, 25, 239, 175))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B3.setFont(font)
+        self.B3.setMouseTracking(False)
+        self.B3.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B3.setAcceptDrops(False)
+        self.B3.setToolTip("")
+        self.B3.setText("")
+        self.B3.setShortcut("")
+        self.B3.setCheckable(False)
+        self.B3.setChecked(False)
+        self.B3.setAutoRepeat(False)
+        self.B3.setAutoExclusive(False)
+        self.B3.setDefault(False)
+        self.B3.setFlat(True)
+        self.B3.setObjectName("B3")
+        self.B4 = QtWidgets.QPushButton(self.centralwidget)
+        self.B4.setGeometry(QtCore.QRect(25, 203, 240, 197))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B4.setFont(font)
+        self.B4.setMouseTracking(False)
+        self.B4.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B4.setAcceptDrops(False)
+        self.B4.setToolTip("")
+        self.B4.setText("")
+        self.B4.setShortcut("")
+        self.B4.setCheckable(False)
+        self.B4.setChecked(False)
+        self.B4.setAutoRepeat(False)
+        self.B4.setAutoExclusive(False)
+        self.B4.setDefault(False)
+        self.B4.setFlat(True)
+        self.B4.setObjectName("B4")
+        self.B5 = QtWidgets.QPushButton(self.centralwidget)
+        self.B5.setGeometry(QtCore.QRect(268, 203, 266, 197))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B5.setFont(font)
+        self.B5.setMouseTracking(False)
+        self.B5.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B5.setAcceptDrops(False)
+        self.B5.setToolTip("")
+        self.B5.setText("")
+        self.B5.setShortcut("")
+        self.B5.setCheckable(False)
+        self.B5.setChecked(False)
+        self.B5.setAutoRepeat(False)
+        self.B5.setAutoExclusive(False)
+        self.B5.setDefault(False)
+        self.B5.setFlat(True)
+        self.B5.setObjectName("B5")
+        self.B6 = QtWidgets.QPushButton(self.centralwidget)
+        self.B6.setGeometry(QtCore.QRect(537, 203, 239, 197))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B6.setFont(font)
+        self.B6.setMouseTracking(False)
+        self.B6.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B6.setAcceptDrops(False)
+        self.B6.setToolTip("")
+        self.B6.setText("")
+        self.B6.setShortcut("")
+        self.B6.setCheckable(False)
+        self.B6.setChecked(False)
+        self.B6.setAutoRepeat(False)
+        self.B6.setAutoExclusive(False)
+        self.B6.setDefault(False)
+        self.B6.setFlat(True)
+        self.B6.setObjectName("B6")
+        self.B7 = QtWidgets.QPushButton(self.centralwidget)
+        self.B7.setGeometry(QtCore.QRect(25, 403, 240, 173))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B7.setFont(font)
+        self.B7.setMouseTracking(False)
+        self.B7.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B7.setAcceptDrops(False)
+        self.B7.setToolTip("")
+        self.B7.setText("")
+        self.B7.setShortcut("")
+        self.B7.setCheckable(False)
+        self.B7.setChecked(False)
+        self.B7.setAutoRepeat(False)
+        self.B7.setAutoExclusive(False)
+        self.B7.setDefault(False)
+        self.B7.setFlat(True)
+        self.B7.setObjectName("B7")
+        self.B8 = QtWidgets.QPushButton(self.centralwidget)
+        self.B8.setGeometry(QtCore.QRect(268, 403, 266, 173))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B8.setFont(font)
+        self.B8.setMouseTracking(False)
+        self.B8.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B8.setAcceptDrops(False)
+        self.B8.setToolTip("")
+        self.B8.setText("")
+        self.B8.setShortcut("")
+        self.B8.setCheckable(False)
+        self.B8.setChecked(False)
+        self.B8.setAutoRepeat(False)
+        self.B8.setAutoExclusive(False)
+        self.B8.setDefault(False)
+        self.B8.setFlat(True)
+        self.B8.setObjectName("B8")
+        self.B9 = QtWidgets.QPushButton(self.centralwidget)
+        self.B9.setGeometry(QtCore.QRect(537, 403, 239, 173))
+        font = QtGui.QFont()
+        font.setFamily("Arial Rounded MT Bold")
+        font.setPointSize(96)
+        self.B9.setFont(font)
+        self.B9.setMouseTracking(False)
+        self.B9.setContextMenuPolicy(QtCore.Qt.DefaultContextMenu)
+        self.B9.setAcceptDrops(False)
+        self.B9.setToolTip("")
+        self.B9.setText("")
+        self.B9.setShortcut("")
+        self.B9.setCheckable(False)
+        self.B9.setChecked(False)
+        self.B9.setAutoRepeat(False)
+        self.B9.setAutoExclusive(False)
+        self.B9.setDefault(False)
+        self.B9.setFlat(True)
+        self.B9.setObjectName("B9")
+        self.pushButton = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton.setGeometry(QtCore.QRect(300, 680, 200, 75))
+        font = QtGui.QFont()
+        font.setFamily("Berlin Sans FB")
+        font.setPointSize(20)
+        self.pushButton.setFont(font)
+        self.pushButton.setStyleSheet("color: rgb(255, 0, 0);")
+        self.pushButton.setObjectName("pushButton")
+        Form.setCentralWidget(self.centralwidget)
+        self.B1.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B2.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B3.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B4.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B5.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B6.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B7.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B8.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B9.setStyleSheet("color: rgb(0, 0, 0);")
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
 
+        self.B1.clicked.connect(self.rule_xo_1)
+        self.B2.clicked.connect(self.rule_xo_2)
+        self.B3.clicked.connect(self.rule_xo_3)
+        self.B4.clicked.connect(self.rule_xo_4)
+        self.B5.clicked.connect(self.rule_xo_5)
+        self.B6.clicked.connect(self.rule_xo_6)
+        self.B7.clicked.connect(self.rule_xo_7)
+        self.B8.clicked.connect(self.rule_xo_8)
+        self.B9.clicked.connect(self.rule_xo_9)
+        self.pushButton.clicked.connect(self.reset)
+
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
         Form.setWindowTitle(_translate("Form", "Tic Tac Toe"))
+        self.pushButton.setText(_translate("Form", "Reset"))
+
+    # This function will update x, o on button at each click
+    def rule_xo_1(self):
+        global count, box
+        if count % 2 != 0:
+            self.B1.setText("X")
+            box[0][0] = 1
+        else:
+            self.B1.setText("O")
+            box[0][0] = 2
+        count += 1
+        self.B1.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_2(self):
+        global count, box
+        if count % 2 != 0:
+            self.B2.setText("X")
+            box[0][1] = 1
+        else:
+            self.B2.setText("O")
+            box[0][1] = 2
+        count += 1
+        self.B2.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_3(self):
+        global count, box
+        if count % 2 != 0:
+            self.B3.setText("X")
+            box[0][2] = 1
+        else:
+            self.B3.setText("O")
+            box[0][2] = 2
+        count += 1
+        self.B3.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_4(self):
+        global count, box
+        if count % 2 != 0:
+            self.B4.setText("X")
+            box[1][0] = 1
+        else:
+            self.B4.setText("O")
+            box[1][0] = 2
+        count += 1
+        self.B4.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_5(self):
+        global count, box
+        if count % 2 != 0:
+            self.B5.setText("X")
+            box[1][1] = 1
+        else:
+            self.B5.setText("O")
+            box[1][1] = 2
+        count += 1
+        self.B5.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_6(self):
+        global count, box
+        if count % 2 != 0:
+            self.B6.setText("X")
+            box[1][2] = 1
+        else:
+            self.B6.setText("O")
+            box[1][2] = 2
+        count += 1
+        self.B6.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_7(self):
+        global count, box
+        if count % 2 != 0:
+            self.B7.setText("X")
+            box[2][0] = 1
+        else:
+            self.B7.setText("O")
+            box[2][0] = 2
+        count += 1
+        self.B7.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_8(self):
+        global count, box
+        if count % 2 != 0:
+            self.B8.setText("X")
+            box[2][1] = 1
+        else:
+            self.B8.setText("O")
+            box[2][1] = 2
+        count += 1
+        self.B8.setEnabled(False)
+        self.check_correctly()
+
+    def rule_xo_9(self):
+        global count, box
+        if count % 2 != 0:
+            self.B9.setText("X")
+            box[2][2] = 1
+        else:
+            self.B9.setText("O")
+            box[2][2] = 2
+        count += 1
+        self.B9.setEnabled(False)
+        self.check_correctly()
+
+    def check_correctly(self):
+        print(box)
+        # Vertical win
+        if box[0][0] == 1 and box [1][0] == 1and box [2][0] == 1:
+            self.B1.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B4.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[0][0] == 2 and box[1][0] == 2 and box[2][0] == 2:
+            self.B1.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B4.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        elif box[0][1] == 1 and box[1][1] == 1 and box[2][1] == 1:
+            self.B2.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[0][1] == 2 and box[1][1] == 2 and box[2][1] == 2:
+            self.B2.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        elif box[0][2] == 1 and box[1][2] == 1 and box[2][2] == 1:
+            self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[0][2] == 2 and box[1][2] == 2 and box[2][2] == 2:
+            self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        # Horizontal win
+        elif box[0][0] == 1 and box [0][1] == 1 and box [0][2] == 1:
+            self.B1.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B2.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[0][0] == 2 and box [0][1] == 2 and box [0][2] == 2:
+            self.B1.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B2.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        elif box[1][0] == 1 and box [1][1] == 1 and box [1][2] == 1:
+            self.B4.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[1][0] == 2 and box[1][1] == 2 and box[1][2] == 2:
+            self.B4.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        elif box[2][0] == 1 and box [2][1] == 1 and box [2][2] == 1:
+            self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[2][0] == 2 and box [2][1] == 2 and box [2][2] == 2:
+            self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        # Slash win
+        elif box[0][0] == 1 and box[1][1] == 1 and box[2][2] == 1:
+            self.B1.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[0][0] == 2 and box[1][1] == 2 and box[2][2] == 2:
+            self.B1.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+        elif box[0][2] == 1 and box[1][1] == 1 and box[2][0] == 1:
+            self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            print("x win")
+            self.button_false()
+
+        elif box[0][2] == 2 and box[1][1] == 2 and box[2][0] == 2:
+            self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B5.setStyleSheet("color: rgb(85, 255, 0);")
+            self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            print("o win")
+            self.button_false()
+
+    def button_false(self):
+        self.B1.setEnabled(False)
+        self.B2.setEnabled(False)
+        self.B3.setEnabled(False)
+        self.B4.setEnabled(False)
+        self.B5.setEnabled(False)
+        self.B6.setEnabled(False)
+        self.B7.setEnabled(False)
+        self.B8.setEnabled(False)
+        self.B9.setEnabled(False)
+
+    def button_true(self):
+        self.B1.setEnabled(True)
+        self.B2.setEnabled(True)
+        self.B3.setEnabled(True)
+        self.B4.setEnabled(True)
+        self.B5.setEnabled(True)
+        self.B6.setEnabled(True)
+        self.B7.setEnabled(True)
+        self.B8.setEnabled(True)
+        self.B9.setEnabled(True)
+
+    def reset(self):
+        global count, box
+        self.button_true()
+        self.B1.setText("")
+        self.B2.setText("")
+        self.B3.setText("")
+        self.B4.setText("")
+        self.B5.setText("")
+        self.B6.setText("")
+        self.B7.setText("")
+        self.B8.setText("")
+        self.B9.setText("")
+        self.B1.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B2.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B3.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B4.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B5.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B6.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B7.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B8.setStyleSheet("color: rgb(0, 0, 0);")
+        self.B9.setStyleSheet("color: rgb(0, 0, 0);")
+        count = 0
+        box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
 
 
 if __name__ == "__main__":
     import sys
+    count = 0
+    box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
+    Form = QtWidgets.QMainWindow()
     ui = Ui_Form()
     ui.setupUi(Form)
     Form.show()
