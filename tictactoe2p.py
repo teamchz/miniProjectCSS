@@ -501,6 +501,18 @@ class Ui_Form(object):
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.label.setText("O win")
             self.button_false()
+        else:
+            if (count) == 9:
+                self.B1.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B2.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B3.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B4.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B5.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B6.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B7.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B8.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B9.setStyleSheet("color: rgb(170, 0, 0);")
+                self.label.setText("Draw")
 
     def button_false(self):
         self.B1.setEnabled(False)
