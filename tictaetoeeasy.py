@@ -10,6 +10,7 @@
 
 from PyQt5 import QtCore, QtGui, QtWidgets
 import random
+from time import sleep
 # UI
 class Ui_Form(object):
     count = 0
@@ -273,7 +274,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Tic Tac Toe"))
+        Form.setWindowTitle(_translate("Form", "Easy"))
         self.pushButton.setText(_translate("Form", "Reset"))
 
     # This function will update x, o on button at each click
@@ -401,7 +402,7 @@ class Ui_Form(object):
             bot_choice.remove(bot_pick)
 
         # Vertical win
-        if box[0][0] == 1 and box [1][0] == 1and box [2][0] == 1:
+        if box[0][0] == 1 and box [1][0] == 1 and box [2][0] == 1:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
@@ -575,7 +576,6 @@ class Ui_Form(object):
         box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
         bot_choice = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.label.setText("")
-
 
 if __name__ == "__main__":
     import sys
