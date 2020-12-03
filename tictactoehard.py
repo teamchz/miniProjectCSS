@@ -9,8 +9,9 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import numpy as np
-
+import random
+from time import sleep
+from math import inf
 # UI
 class Ui_Form(object):
     count = 0
@@ -230,6 +231,15 @@ class Ui_Form(object):
         self.B9.setDefault(False)
         self.B9.setFlat(True)
         self.B9.setObjectName("B9")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(268, 615, 266, 50))
+        font = QtGui.QFont()
+        font.setFamily("Berlin Sans FB")
+        font.setPointSize(28)
+        self.label.setFont(font)
+        self.label.setText("")
+        self.label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(300, 680, 200, 75))
         font = QtGui.QFont()
@@ -265,154 +275,164 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "2 Player"))
+        Form.setWindowTitle(_translate("Form", "Easy"))
         self.pushButton.setText(_translate("Form", "Reset"))
 
     # This function will update x, o on button at each click
     def rule_xo_1(self):
-        global count, box
-        if count % 2 != 0:
-            self.B1.setText("X")
-            box[0][0] = 1
-        else:
-            self.B1.setText("O")
-            box[0][0] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B1.setText("O")
+        box[0][0] = 2
         self.B1.setEnabled(False)
+        bot_choice.remove(1)
         self.check_correctly()
 
     def rule_xo_2(self):
-        global count, box
-        if count % 2 != 0:
-            self.B2.setText("X")
-            box[0][1] = 1
-        else:
-            self.B2.setText("O")
-            box[0][1] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B2.setText("O")
+        box[0][1] = 2
         self.B2.setEnabled(False)
+        bot_choice.remove(2)
         self.check_correctly()
 
+
     def rule_xo_3(self):
-        global count, box
-        if count % 2 != 0:
-            self.B3.setText("X")
-            box[0][2] = 1
-        else:
-            self.B3.setText("O")
-            box[0][2] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B3.setText("O")
+        box[0][2] = 2
         self.B3.setEnabled(False)
+        bot_choice.remove(3)
         self.check_correctly()
 
     def rule_xo_4(self):
-        global count, box
-        if count % 2 != 0:
-            self.B4.setText("X")
-            box[1][0] = 1
-        else:
-            self.B4.setText("O")
-            box[1][0] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B4.setText("O")
+        box[1][0] = 2
         self.B4.setEnabled(False)
+        bot_choice.remove(4)
         self.check_correctly()
 
     def rule_xo_5(self):
-        global count, box
-        if count % 2 != 0:
-            self.B5.setText("X")
-            box[1][1] = 1
-        else:
-            self.B5.setText("O")
-            box[1][1] = 2
-        count += 1
+        self.B5.setText("O")
+        box[1][1] = 2
         self.B5.setEnabled(False)
+        bot_choice.remove(5)
         self.check_correctly()
 
     def rule_xo_6(self):
-        global count, box
-        if count % 2 != 0:
-            self.B6.setText("X")
-            box[1][2] = 1
-        else:
-            self.B6.setText("O")
-            box[1][2] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B6.setText("O")
+        box[1][2] = 2
         self.B6.setEnabled(False)
+        bot_choice.remove(6)
         self.check_correctly()
 
     def rule_xo_7(self):
-        global count, box
-        if count % 2 != 0:
-            self.B7.setText("X")
-            box[2][0] = 1
-        else:
-            self.B7.setText("O")
-            box[2][0] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B7.setText("O")
+        box[2][0] = 2
         self.B7.setEnabled(False)
+        bot_choice.remove(7)
         self.check_correctly()
 
     def rule_xo_8(self):
-        global count, box
-        if count % 2 != 0:
-            self.B8.setText("X")
-            box[2][1] = 1
-        else:
-            self.B8.setText("O")
-            box[2][1] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B8.setText("O")
+        box[2][1] = 2
         self.B8.setEnabled(False)
+        bot_choice.remove(8)
         self.check_correctly()
 
     def rule_xo_9(self):
-        global count, box
-        if count % 2 != 0:
-            self.B9.setText("X")
-            box[2][2] = 1
-        else:
-            self.B9.setText("O")
-            box[2][2] = 2
-        count += 1
+        global count, box, bot_choice
+        self.B9.setText("O")
+        box[2][2] = 2
         self.B9.setEnabled(False)
+        bot_choice.remove(9)
         self.check_correctly()
 
     def check_correctly(self):
+        global bot_round, bot_choice, box
+        if bot_round == 0:
+            if box[2][0] == 2 or box[2][2] == 2 or box[0][2] == 2 or box[0][0] == 2:
+                self.B5.setText("X")
+                self.B5.setDisabled
+                box[1][1] = 1
+                bot_round += 1
+            
+            elif box[2][1]:
+                self.B2.setText("X")
+                self.B2.setDisabled
+                box[0][1] = 1
+                bot_round += 1
+            
+            elif box[1][2] == 2:
+                self.B3.setText("X")
+                self.B3.setDisabled
+                box[0][2] = 1
+                bot_round += 1
+
+            else:
+                self.B1.setText("X")
+                self.B1.setDisabled
+                box[0][0] = 1
+                bot_round += 1
+
+        if box[1][1] and box[2][2] == 2 or box[2][0]:
+            self.B3.setText("X")
+            box[0][2] = 1
+            bot_round += 1
+            if box [0][1] != 2 and bot_round == 3:
+                self.B2.setText("X")
+                box[0][1] = 1
+                bot_round += 1
+            elif box [0][1] == 2 and bot_round == 3:
+                self.B8.setText("X")
+                box[2][1] = 1
+                bot_round += 1
+            
+
         # Vertical win
-        if box[0][0] == 1 and box [1][0] == 1and box [2][0] == 1:
+        if box[0][0] == 1 and box [1][0] == 1 and box [2][0] == 1:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][0] == 2 and box[1][0] == 2 and box[2][0] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[0][1] == 1 and box[1][1] == 1 and box[2][1] == 1:
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][1] == 2 and box[1][1] == 2 and box[2][1] == 2:
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[0][2] == 1 and box[1][2] == 1 and box[2][2] == 1:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][2] == 2 and box[1][2] == 2 and box[2][2] == 2:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         # Horizontal win
@@ -420,62 +440,84 @@ class Ui_Form(object):
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][0] == 2 and box [0][1] == 2 and box [0][2] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[1][0] == 1 and box [1][1] == 1 and box [1][2] == 1:
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[1][0] == 2 and box[1][1] == 2 and box[1][2] == 2:
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[2][0] == 1 and box [2][1] == 1 and box [2][2] == 1:
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[2][0] == 2 and box [2][1] == 2 and box [2][2] == 2:
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
-        # Diagonal win
+        # Slash win
         elif box[0][0] == 1 and box[1][1] == 1 and box[2][2] == 1:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][0] == 2 and box[1][1] == 2 and box[2][2] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[0][2] == 1 and box[1][1] == 1 and box[2][0] == 1:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][2] == 2 and box[1][1] == 2 and box[2][0] == 2:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
+        else:
+            if len(bot_choice) == 0:
+                self.B1.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B2.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B3.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B4.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B5.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B6.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B7.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B8.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B9.setStyleSheet("color: rgb(170, 0, 0);")
+                self.label.setText("Draw")
 
     def button_false(self):
         self.B1.setEnabled(False)
@@ -500,7 +542,7 @@ class Ui_Form(object):
         self.B9.setEnabled(True)
 
     def reset(self):
-        global count, box
+        global count, box, bot_round, bot_choice
         self.button_true()
         self.B1.setText("")
         self.B2.setText("")
@@ -521,12 +563,58 @@ class Ui_Form(object):
         self.B8.setStyleSheet("color: rgb(0, 0, 0);")
         self.B9.setStyleSheet("color: rgb(0, 0, 0);")
         count = 0
+        bot_round = 0
         box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        bot_choice = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.label.setText("")
+    '''
+    def empty_index(self):
+        global box
+        
+        for i in range(0, 3):
+            for j in range(0, 3):
+                if box[i][j] == 0:
+                    return box
 
+
+    
+    # Minimax algorithm. Use for best move
+    def Minimax(self, depth, player):
+        global count, box, MAX, MIN
+        if player == MAX:
+            best = [-1, -1, -inf]
+        else:
+            best = [-1, -1, +inf]
+
+        if depth == 0 or check_correctly(self):
+            score = eval(self)
+            return score
+
+        for i in range(0, 3):
+            for j in range(0, 3):
+                for empty_index in box[i][j]:
+                    box[i][j] = player
+                    score = Minimax(self, depth, -1, player)
+                    box[i][j] = 0
+                    score[0], score[1] = i, j
+        
+                    if player == MAX:
+                        if score[2] > best[2]:
+                            best = score
+                    else:
+                        if score[2] < best[2]:
+                            best = score
+
+        return best
+    '''
 
 if __name__ == "__main__":
     import sys
     count = 0
+    bot_round = 0
+    MAX = +1
+    MIN = -1
+    bot_choice = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     app = QtWidgets.QApplication(sys.argv)
     Form = QtWidgets.QMainWindow()
