@@ -275,7 +275,7 @@ class Ui_Form(object):
 
     def retranslateUi(self, Form):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Easy"))
+        Form.setWindowTitle(_translate("Form", "Hard"))
         self.pushButton.setText(_translate("Form", "Reset"))
 
     # This function will update x, o on button at each click
