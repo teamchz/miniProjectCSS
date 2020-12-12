@@ -2,7 +2,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from hangman import *
 from rps_game import *
 from tictactoe2p import *
-from tictactoeeasy import *
+from tictaetoeeasy import *
 import random
 
 
