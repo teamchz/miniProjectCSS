@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
+ <class>Form</class>
+ <widget class="QMainWindow" name="Form">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="enabled">
    <bool>true</bool>
   </property>
@@ -10,19 +13,19 @@
     <x>0</x>
     <y>0</y>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
     <width>800</width>
-    <height>600</height>
+    <height>800</height>
    </size>
   </property>
   <property name="mouseTracking">
@@ -135,8 +138,522 @@
      <enum>Qt::Vertical</enum>
     </property>
    </widget>
+   <widget class="QPushButton" name="B1">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>25</y>
+      <width>240</width>
+      <height>175</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B2">
+    <property name="geometry">
+     <rect>
+      <x>268</x>
+      <y>25</y>
+      <width>266</width>
+      <height>175</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B3">
+    <property name="geometry">
+     <rect>
+      <x>537</x>
+      <y>25</y>
+      <width>239</width>
+      <height>175</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B4">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>203</y>
+      <width>240</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B5">
+    <property name="geometry">
+     <rect>
+      <x>268</x>
+      <y>203</y>
+      <width>266</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B6">
+    <property name="geometry">
+     <rect>
+      <x>537</x>
+      <y>203</y>
+      <width>239</width>
+      <height>197</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B7">
+    <property name="geometry">
+     <rect>
+      <x>25</x>
+      <y>403</y>
+      <width>240</width>
+      <height>173</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B8">
+    <property name="geometry">
+     <rect>
+      <x>268</x>
+      <y>403</y>
+      <width>266</width>
+      <height>173</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="B9">
+    <property name="geometry">
+     <rect>
+      <x>537</x>
+      <y>403</y>
+      <width>239</width>
+      <height>173</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Arial Rounded MT Bold</family>
+      <pointsize>96</pointsize>
+     </font>
+    </property>
+    <property name="mouseTracking">
+     <bool>false</bool>
+    </property>
+    <property name="contextMenuPolicy">
+     <enum>Qt::DefaultContextMenu</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="toolTip">
+     <string/>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="shortcut">
+     <string/>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="checked">
+     <bool>false</bool>
+    </property>
+    <property name="autoRepeat">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>false</bool>
+    </property>
+    <property name="default">
+     <bool>false</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>268</x>
+      <y>615</y>
+      <width>266</width>
+      <height>50</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Berlin Sans FB</family>
+      <pointsize>28</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignHCenter|Qt::AlignTop</set>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>680</y>
+      <width>200</width>
+      <height>75</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Berlin Sans FB</family>
+      <pointsize>20</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 0, 0);</string>
+    </property>
+    <property name="text">
+     <string>Reset</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>

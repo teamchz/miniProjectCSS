@@ -9,22 +9,25 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import numpy as np
-
+from main import *
 # UI
-class Ui_Form(object):
-    count = 0
 
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.setWindowModality(QtCore.Qt.NonModal)
-        Form.setEnabled(True)
-        Form.resize(800, 800)
-        Form.setMinimumSize(QtCore.QSize(800, 800))
-        Form.setMaximumSize(QtCore.QSize(800, 800))
-        Form.setMouseTracking(True)
-        Form.setAutoFillBackground(False)
-        self.centralwidget = QtWidgets.QWidget(Form)
+
+class Ui_TTT2P(object):
+    global count, box
+    count = 0
+    box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+
+    def setupTTT2P(self, TTT2P):
+        TTT2P.setObjectName("TTT2P")
+        TTT2P.setWindowModality(QtCore.Qt.NonModal)
+        TTT2P.setEnabled(True)
+        TTT2P.resize(800, 800)
+        TTT2P.setMinimumSize(QtCore.QSize(800, 800))
+        TTT2P.setMaximumSize(QtCore.QSize(800, 800))
+        TTT2P.setMouseTracking(True)
+        TTT2P.setAutoFillBackground(False)
+        self.centralwidget = QtWidgets.QWidget(TTT2P)
         self.centralwidget.setEnabled(True)
         self.centralwidget.setMouseTracking(True)
         self.centralwidget.setObjectName("centralwidget")
@@ -230,6 +233,15 @@ class Ui_Form(object):
         self.B9.setDefault(False)
         self.B9.setFlat(True)
         self.B9.setObjectName("B9")
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        self.label.setGeometry(QtCore.QRect(268, 615, 266, 50))
+        font = QtGui.QFont()
+        font.setFamily("Berlin Sans FB")
+        font.setPointSize(28)
+        self.label.setFont(font)
+        self.label.setText("")
+        self.label.setAlignment(QtCore.Qt.AlignHCenter | QtCore.Qt.AlignTop)
+        self.label.setObjectName("label")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(300, 680, 200, 75))
         font = QtGui.QFont()
@@ -238,7 +250,7 @@ class Ui_Form(object):
         self.pushButton.setFont(font)
         self.pushButton.setStyleSheet("color: rgb(255, 0, 0);")
         self.pushButton.setObjectName("pushButton")
-        Form.setCentralWidget(self.centralwidget)
+        TTT2P.setCentralWidget(self.centralwidget)
         self.B1.setStyleSheet("color: rgb(0, 0, 0);")
         self.B2.setStyleSheet("color: rgb(0, 0, 0);")
         self.B3.setStyleSheet("color: rgb(0, 0, 0);")
@@ -249,8 +261,8 @@ class Ui_Form(object):
         self.B8.setStyleSheet("color: rgb(0, 0, 0);")
         self.B9.setStyleSheet("color: rgb(0, 0, 0);")
 
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
+        self.retranslateUi(TTT2P)
+        QtCore.QMetaObject.connectSlotsByName(TTT2P)
 
         self.B1.clicked.connect(self.rule_xo_1)
         self.B2.clicked.connect(self.rule_xo_2)
@@ -263,10 +275,10 @@ class Ui_Form(object):
         self.B9.clicked.connect(self.rule_xo_9)
         self.pushButton.clicked.connect(self.reset)
 
-    def retranslateUi(self, Form):
+    def retranslateUi(self, TTT2P):
         _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "2 Player"))
-        self.pushButton.setText(_translate("Form", "Reset"))
+        TTT2P.setWindowTitle(_translate("TTT2P", "2 Player"))
+        self.pushButton.setText(_translate("TTT2P", "Reset"))
 
     # This function will update x, o on button at each click
     def rule_xo_1(self):
@@ -383,36 +395,42 @@ class Ui_Form(object):
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][0] == 2 and box[1][0] == 2 and box[2][0] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[0][1] == 1 and box[1][1] == 1 and box[2][1] == 1:
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][1] == 2 and box[1][1] == 2 and box[2][1] == 2:
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[0][2] == 1 and box[1][2] == 1 and box[2][2] == 1:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][2] == 2 and box[1][2] == 2 and box[2][2] == 2:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         # Horizontal win
@@ -420,36 +438,42 @@ class Ui_Form(object):
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][0] == 2 and box [0][1] == 2 and box [0][2] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B2.setStyleSheet("color: rgb(85, 255, 0);")
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[1][0] == 1 and box [1][1] == 1 and box [1][2] == 1:
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[1][0] == 2 and box[1][1] == 2 and box[1][2] == 2:
             self.B4.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B6.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[2][0] == 1 and box [2][1] == 1 and box [2][2] == 1:
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[2][0] == 2 and box [2][1] == 2 and box [2][2] == 2:
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
             self.B8.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         # Diagonal win
@@ -457,25 +481,41 @@ class Ui_Form(object):
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][0] == 2 and box[1][1] == 2 and box[2][2] == 2:
             self.B1.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B9.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
 
         elif box[0][2] == 1 and box[1][1] == 1 and box[2][0] == 1:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("X win")
             self.button_false()
 
         elif box[0][2] == 2 and box[1][1] == 2 and box[2][0] == 2:
             self.B3.setStyleSheet("color: rgb(85, 255, 0);")
             self.B5.setStyleSheet("color: rgb(85, 255, 0);")
             self.B7.setStyleSheet("color: rgb(85, 255, 0);")
+            self.label.setText("O win")
             self.button_false()
+        else:
+            if (count) == 9:
+                self.B1.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B2.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B3.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B4.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B5.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B6.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B7.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B8.setStyleSheet("color: rgb(170, 0, 0);")
+                self.B9.setStyleSheet("color: rgb(170, 0, 0);")
+                self.label.setText("Draw")
 
     def button_false(self):
         self.B1.setEnabled(False)
@@ -522,15 +562,14 @@ class Ui_Form(object):
         self.B9.setStyleSheet("color: rgb(0, 0, 0);")
         count = 0
         box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
+        self.label.setText("")
 
 
 if __name__ == "__main__":
     import sys
-    count = 0
-    box = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QMainWindow()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
+    TTT2P = QtWidgets.QWidget()
+    ui = Ui_TTT2P()
+    ui.setupTTT2P(TTT2P)
+    TTT2P.show()
     sys.exit(app.exec_())

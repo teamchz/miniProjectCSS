@@ -1,5 +1,8 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from hangman import *
+from rps_game import *
+from tictactoe2p import *
+from tictactoeeasy import *
 import random
 
 
@@ -12,13 +15,34 @@ class Ui_Form(object):
         self.window.show()
         Form.hide()
 
+    def rps(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui=Ui_RPS()
+        self.ui.setupRPS(self.window)
+        self.window.show()
+        Form.hide()
+
+    def TTT2P(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui=Ui_TTT2P()
+        self.ui.setupTTT2P(self.window)
+        self.window.show()
+        Form.hide()
+
+    def TTT(self):
+        self.window = QtWidgets.QMainWindow()
+        self.ui = Ui_TTT()
+        self.ui.setupTTT(self.window)
+        self.window.show()
+        Form.hide()
+
     def setupUi(self, Form):
         Form.setObjectName("Form")
         Form.resize(800, 600)
         Form.setMinimumSize(QtCore.QSize(800, 600))
         Form.setMaximumSize(QtCore.QSize(1000, 1000))
         font = QtGui.QFont()
-        font.setFamily("Yu Gothic UI Semibold")
+        font.setFamily("Yu Gothic UI Sembold")
         Form.setFont(font)
         Form.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         Form.setStyleSheet("background-image: url(:/newPrefix/rocket.png);")
@@ -28,12 +52,36 @@ class Ui_Form(object):
         self.goto_RSP.setStyleSheet("background-image: url(:/newPrefix/rsp2.png);")
         self.goto_RSP.setText("")
         self.goto_RSP.setObjectName("goto_RSP")
+        self.goto_RSP.clicked.connect(self.rps)
         self.goto_TTT = QtWidgets.QPushButton(Form)
-        self.goto_TTT.setGeometry(QtCore.QRect(300, 210, 171, 241))
+        self.goto_TTT.setGeometry(QtCore.QRect(300, 210, 171, 130))
         self.goto_TTT.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
-        self.goto_TTT.setStyleSheet("background-image: url(:/newPrefix/ttt2.png);")
-        self.goto_TTT.setText("")
+        self.goto_TTT.setText("1 PLAYER")
         self.goto_TTT.setObjectName("goto_TTT")
+        self.goto_TTT.setStyleSheet("color: rgb(0, 255, 127);")
+        self.goto_TTT.setStyleSheet("background-image: url(:/newPrefix/white.png);")
+        self.goto_TTT.clicked.connect(self.TTT2P)
+        font = QtGui.QFont()
+        font.setFamily("Agency FB")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setWeight(50)
+        self.goto_TTT.setFont(font)
+        self.goto_TTT_2 = QtWidgets.QPushButton(Form)
+        self.goto_TTT_2.setGeometry(QtCore.QRect(300, 340, 171, 120))
+        self.goto_TTT_2.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
+        self.goto_TTT_2.setText("2 PLAYERS")
+        self.goto_TTT_2.setObjectName("goto_TTT_2")
+        self.goto_TTT_2.setStyleSheet("color: rgb(0, 255, 127);")
+        self.goto_TTT_2.setStyleSheet("background-color: rgb(0, 255, 127);")
+        self.goto_TTT_2.setStyleSheet("background-image: url(:/newPrefix/white.png);")
+        self.goto_TTT_2.clicked.connect(self.TTT)
+        font = QtGui.QFont()
+        font.setFamily("Agency FB")
+        font.setPointSize(18)
+        font.setBold(False)
+        font.setWeight(50)
+        self.goto_TTT_2.setFont(font)
         self.goto_hangman = QtWidgets.QPushButton(Form)
         self.goto_hangman.setGeometry(QtCore.QRect(530, 210, 171, 241))
         self.goto_hangman.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
