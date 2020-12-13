@@ -5,6 +5,13 @@ from tictactoe2p import *
 from tictaetoeeasy import *
 import random
 
+'''
+นายคณานนท์ ก้ามจำรูญ 63090500420
+นายนิติพัฒน์ ศรีธระชิยานนท์ 63090500426 
+นายพิษณุ บุญญาอนันต์ 63090500429
+นายพรพล ต้ังอดุลย์รัตน์ 63090500439
+'''
+
 
 class Ui_Form(object):
 
@@ -13,28 +20,25 @@ class Ui_Form(object):
         self.ui=Ui_Hangman()
         self.ui.setupHangman(self.window)
         self.window.show()
-        Form.hide()
+
 
     def rps(self):
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_RPS()
         self.ui.setupRPS(self.window)
         self.window.show()
-        Form.hide()
 
     def TTT2P(self):
         self.window = QtWidgets.QMainWindow()
         self.ui=Ui_TTT2P()
         self.ui.setupTTT2P(self.window)
         self.window.show()
-        Form.hide()
 
     def TTT(self):
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_TTT()
         self.ui.setupTTT(self.window)
         self.window.show()
-        Form.hide()
 
     def setupUi(self, Form):
         Form.setObjectName("Form")
